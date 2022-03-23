@@ -13,14 +13,11 @@
 <body>
     <header class="navbar">
         <div class="title">
-            <h1>Sasquatch Websighting</h1>
+            <h4>Coding Dojo Wall</h4>
         </div>
-        <div class="user">
-            <h2>{{user.first_name}} {{user.last_name}}</h2>
-            <div class="links">
-                <a href="/new/sighting" class="btn btn-primary">Report a Sighting</a>
-                <a href="/logout" class="btn btn-primary">Logout</a>
-            </div>
+        <div class="title-links">
+            <h4>Welcome, {{user.first_name}}!</h4>
+            <a href="/logout">Logout</a>
         </div>
     </header>
     <main>
@@ -33,20 +30,24 @@
                 {% endif %}
             {% endwith %}
         </div>
-        <div class="col read-msg">
-            <h3>{{len()}} Message(s) for You</h3>
-        </div>
-        <div class="col send-msg">
-            <h3>Send Messages</h3>
-            <h6>You have sent {{msg-count}} messages so far</h6>
-            <div class="send-form">
-                <label for="JD">JD</label>
-                <textarea name="JD" cols="10" rows="4"></textarea>
-                <input type="submit" value="Send" class="btn btn-success">
+        <div class="container">
+            <div class="row justify content around">
+                <div class="col-lg read-msg">
+                    <h3> Message(s) for You</h3>
+                </div>
+                <div class="col-lg send-msg">
+                    <h3>Send Messages</h3>
+                    <h6>You have sent __ messages so far</h6>
+                    <form action="/post-msg" class="form-inline">
+                        <label for="JD">JD</label>
+                        <textarea name="JD" cols="20" rows="1"></textarea>
+                        <input type="submit">
+                    </form>
+                    <form action="" class="form-inline"></form>
+                    <form action="" class="form-inline"></form>
+                    <form action="" class="form-inline"></form>
+                </div>
             </div>
-            <div class="send-form"></div>
-            <div class="send-form"></div>
-            <div class="send-form"></div>
         </div>
     </main>
     <footer></footer>

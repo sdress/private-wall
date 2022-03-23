@@ -1,0 +1,22 @@
+header{
+    background-color: #E5E3C9;
+}
+
+main{
+    background-color: #B4CFB0;
+}
+
+.navbar{
+    border-bottom: 2px solid black;
+}
+
+.title-links{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: baseline;
+}
+
+.title-links h4{
+    margin-right: 20px;
+}
