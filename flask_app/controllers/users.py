@@ -10,7 +10,7 @@ def show_home_page():
     return render_template('login_reg.html')
 
 @app.route('/create-user', methods=['POST'])
-def process_form():
+def create_user():
     if not User.validate(request.form):
         return redirect('/')
     data = {
@@ -37,3 +37,18 @@ def login_user():
         return redirect('/')
     session['user_id'] = user.id
     return render_template('wall.html')
+
+@app.route('/logout')
+def logout_user():
+    session.clear()
+    return redirect('/')
+
+@app.route('/wall')
+def show_wall():
+    if 'user_id' not in session:
+        flash('You must be logged in to view')
+        return redirect('/logout')
+    data = {
+        'id': session['user_id']
+    }
+    return render_template('wall.html', user=User.get_from_id(data))
