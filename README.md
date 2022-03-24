@@ -6,3 +6,4 @@ This assignment is for:
 - creating login and registration
 - self-join relationships
 - thinking about web security and how other may hack your site
+- practicing deployment for first time!
