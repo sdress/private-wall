@@ -17,7 +17,7 @@ def create_user():
         'first_name': request.form['first_name'],
         'last_name': request.form['last_name'],
         'email': request.form['email'],
-        'password': request.form['password']
+        'password': bcrypt.generate_password_hash(request.form['password'])
     }
     user_id = User.create(data)
     session['user_id'] = user_id
@@ -36,19 +36,21 @@ def login_user():
         flash('Incorrect password!')
         return redirect('/')
     session['user_id'] = user.id
-    return render_template('wall.html')
+    return redirect('/wall')
 
 @app.route('/logout')
 def logout_user():
     session.clear()
     return redirect('/')
 
-@app.route('/wall')
-def show_wall():
-    if 'user_id' not in session:
-        flash('You must be logged in to view')
-        return redirect('/logout')
-    data = {
-        'id': session['user_id']
-    }
-    return render_template('wall.html', user=User.get_from_id(data))
+# '/wall' moved to messages.py
+
+# @app.route('/wall')
+# def show_wall():
+#     if 'user_id' not in session:
+#         return redirect('/logout')
+#     data = {
+#         'id': session['user_id']
+#     }
+#     print(data)
+#     return render_template('wall.html', user=User.get_from_id(data), all_users=User.get_all())

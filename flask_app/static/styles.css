@@ -20,3 +20,13 @@ main{
 .title-links h4{
     margin-right: 20px;
 }
+
+.form-inline{
+    align-items: flex-start;
+    margin-bottom: 20px;
+    justify-content: flex-start;
+}
+
+form .btn{
+    margin-left: ;
+}

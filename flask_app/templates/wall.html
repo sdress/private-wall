@@ -9,6 +9,8 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <!-- connect to static folder css file -->
     <link rel="stylesheet" href="{{ url_for('static', filename='styles.css')}}">
+    <!-- link to Google Icons -->
+    <link rel="stylesheet" href="https://fonts.google.com/icons?selected=Material+Icons">
 </head>
 <body>
     <header class="navbar">
@@ -38,14 +40,13 @@
                 <div class="col-lg send-msg">
                     <h3>Send Messages</h3>
                     <h6>You have sent __ messages so far</h6>
-                    <form action="/post-msg" class="form-inline">
-                        <label for="JD">JD</label>
-                        <textarea name="JD" cols="20" rows="1"></textarea>
-                        <input type="submit">
+                    {% for other_user in all_users %}
+                    <form action="/send-msg/{{other_user.id}}" class="form-inline">
+                        <label for="{{other_user.first_name}}" class="col-md-2">{{other_user.first_name}}</label>
+                        <textarea name="{{other_user.first_name}}" cols="20" rows="2" class="col-md-6 form-control"></textarea>
+                        <input type="submit" value="Send" class="btn btn-sm btn-success">
                     </form>
-                    <form action="" class="form-inline"></form>
-                    <form action="" class="form-inline"></form>
-                    <form action="" class="form-inline"></form>
+                    {% endfor %}
                 </div>
             </div>
         </div>
