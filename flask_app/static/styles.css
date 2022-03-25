@@ -28,7 +28,14 @@ main{
     justify-content: flex-start;
 }
 
-form .btn{
+.form-inline .btn{
     margin-left: 10px;
 }
 
+.reg-form, .login-form{
+    border: 2px solid black;
+    padding: 20px;
+    background-color: silver;
+    margin-left: 20px;
+    height: fit-content;
+}
