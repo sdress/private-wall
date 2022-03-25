@@ -4,6 +4,7 @@ header{
 
 main{
     background-color: #B4CFB0;
+    height: 100%;
 }
 
 .navbar{
@@ -28,5 +29,6 @@ main{
 }
 
 form .btn{
-    margin-left: ;
+    margin-left: 10px;
 }
+
